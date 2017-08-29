@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<facelet-taglib
+        xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_2.xsd"
+        version="2.2">
+
+    <description>DevDojo Functions</description>
+    <namespace>http://devdojo.com.br/functions</namespace>
+    <short-name>df</short-name>
+    <function>
+        <description>
+            <![CDATA[
+            Capitaliza a primeira letra de cada palavra
+                ]]>
+        </description>
+        <function-name>capitalize</function-name>
+        <function-class>br.com.devdojo.maratonajsf.taglibfunction.TagLibFunctions</function-class>
+        <function-signature>java.lang.String capitalize(java.lang.String) </function-signature>
+    </function>
+</facelet-taglib>

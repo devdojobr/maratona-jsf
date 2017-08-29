@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head></h:head>
+<h:body>
+    <h:outputText value="#{ajaxTesteBean.sobrenome}" id="outside"/>
+    <h:form id="form">
+        <h:panelGrid columns="1">
+            <!--@form @this @none @all-->
+            <h:inputText value="#{ajaxTesteBean.nome}" id="nome"/>
+            <h:inputText value="#{ajaxTesteBean.sobrenome}" id="sobrenome"/>
+            <h:commandButton value="Enviar">
+                <f:ajax execute="@form" listener="#{ajaxTesteBean.toUpperCase}"
+                        render="@form form2-sobrenomeOut2 outside"/>
+            </h:commandButton>
+            <h:outputText value="#{ajaxTesteBean.nome}" id="nomeOut"/>
+            <h:outputText value="#{ajaxTesteBean.sobrenome}" id="sobrenomeOut"/>
+            <h:inputText value="#{ajaxTesteBean.nome}">
+                <f:ajax event="blur" listener="#{ajaxTesteBean.toUpperCaseNome}"
+                        render="@this nomeOut" />
+            </h:inputText>
+            <h:selectOneMenu value="#{ajaxTesteBean.animeSelecionado}">
+                <f:selectItem value="#{null}" itemLabel="Selecione um Anime"/>
+                <f:selectItems value="#{ajaxTesteBean.animePersonagensMap.keySet()}"
+                               var="anime" itemLabel="#{anime}" itemValue="#{anime}"/>
+                <f:ajax event="change" listener="#{ajaxTesteBean.onSelectAnime}" render="personagem"/>
+            </h:selectOneMenu>
+            <h:selectOneMenu id="personagem" value="#{ajaxTesteBean.personagemSelecionado}">
+                <f:selectItem value="#{null}" itemLabel="Selecione um personagem"/>
+                <f:selectItems value="#{ajaxTesteBean.personagens}"
+                               var="personagem" itemLabel="#{personagem}" itemValue="#{personagem}"/>
+            </h:selectOneMenu>
+        </h:panelGrid>
+    </h:form>
+    <h:form id="form2">
+        <h:outputText value="#{ajaxTesteBean.nome}" id="nomeOut2"/>
+        <h:outputText value="#{ajaxTesteBean.sobrenome}" id="sobrenomeOut2"/>
+    </h:form>
+</h:body>
+</html>

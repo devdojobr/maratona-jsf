@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head jsf:id="head"></head>
+<body jsf:id="body">
+<form jsf:id="form">
+    <p:messages autoUpdate="true" id="messages"/>
+    Email: <input jsf:id="email" required="required" type="email"
+                  jsf:value="#{html5TesteBean.email}"
+                  jsf:validator="#{validators.validateDuplicatedEmail}"/>
+    <br/>
+    URL: <input jsf:id="url" required="required" type="url"
+                  jsf:value="#{html5TesteBean.url}"/>
+    <br/>
+    URL: <input jsf:id="number" required="required" type="number"
+                jsf:value="#{html5TesteBean.numero}"/>
+    <br/>
+    <h:inputText value="#{html5TesteBean.nome}">
+        <f:ajax event="blur" listener="#{html5TesteBean.toUpperCaseNome}"
+                render="@this" />
+    </h:inputText>
+    <button jsf:actionListener="#{html5TesteBean.salvar}">
+        Salvar
+    </button>
+</form>
+</body>
+<!--<h:body>-->
+<!--<p:messages autoUpdate="true" id="messages"/>-->
+<!--<f:metadata>-->
+<!--<f:viewAction action="#{html5TesteBean.init}"/>-->
+<!--</f:metadata>-->
+<!---->
+<!--</h:body>-->
+</html>

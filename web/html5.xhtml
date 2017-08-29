@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head></h:head>
+<h:body>
+    <p:messages autoUpdate="true" id="messages"/>
+    <f:metadata>
+        <f:viewAction action="#{html5TesteBean.init}"/>
+    </f:metadata>
+    <h:form id="form">
+        <h:panelGrid columns="1">
+            <h:inputText value="#{html5TesteBean.email}"
+                         pt:type="email"
+                         pt:placeholder="Digite o seu email"/>
+            <h:inputText value="#{html5TesteBean.email}">
+                <f:passThroughAttribute name="type" value="email"/>
+                <f:passThroughAttribute name="placeholder" value="Digite o seu email"/>
+            </h:inputText>
+            <h:inputText value="#{html5TesteBean.email}">
+                <f:passThroughAttributes value="#{html5TesteBean.attributes}"/>
+            </h:inputText>
+            <h:inputText value="#{html5TesteBean.email}">
+                <f:passThroughAttributes value="#{{'placeholder': 'Digite o seu email',
+                'type': 'email'}}"/>
+            </h:inputText>
+            <input type="email" placeholder="Digite o seu email"/>
+        </h:panelGrid>
+    </h:form>
+
+</h:body>
+</html>

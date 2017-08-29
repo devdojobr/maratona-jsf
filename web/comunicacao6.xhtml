@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+
+</h:head>
+<h:body>
+    <o:form includeRequestParams="true">
+        <p:messages autoUpdate="true"/>
+        <h:panelGrid columns="1">
+            <ui:repeat value="#{comunicacaoTeste6Bean.estudanteList}"
+                       var="estudante" varStatus="status">
+                <h:outputText value="#{status.index}"/>&nbsp;
+                <h:outputText value="#{estudante.nome}"/>&nbsp;
+                <h:outputText value="#{estudante.sobrenome}"/>&nbsp;
+                <h:outputText value="#{estudante.nota1}"/>&nbsp;
+                <h:commandLink value="editar" action="#{comunicacaoTeste6Bean.editar(status.index)}"/>&nbsp;
+                <br/>
+            </ui:repeat>
+        </h:panelGrid>
+    </o:form>
+</h:body>
+</html>

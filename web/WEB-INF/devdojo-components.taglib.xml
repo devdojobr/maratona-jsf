@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<facelet-taglib
+        xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_2.xsd"
+        version="2.2">
+
+    <description>DevDojo Components</description>
+    <namespace>http://devdojo.com.br/components</namespace>
+    <short-name>dc</short-name>
+    <tag>
+        <tag-name>confirmDelete</tag-name>
+        <behavior>
+            <behavior-id>confirm</behavior-id>
+        </behavior>
+    </tag>
+</facelet-taglib>

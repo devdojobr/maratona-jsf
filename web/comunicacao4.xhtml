@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+
+</h:head>
+<h:body>
+    <o:form includeRequestParams="true">
+        <p:messages autoUpdate="true"/>
+        <h:panelGrid columns="1">
+            <h:commandButton actionListener="#{comunicacaoTeste4Bean.execute}">
+                <f:attribute value="#{comunicacaoTeste4Bean.buttonName}" name="value"/>
+            </h:commandButton>
+
+            <h:commandButton value="#{comunicacaoTeste4Bean.buttonName}"
+                             actionListener="#{comunicacaoTeste4Bean.execute}"/>
+
+            <h:commandButton test="Testando" value="add param" actionListener="#{comunicacaoTeste4Bean.execute}">
+                <f:attribute  name="nome" value="DevDojo"/>
+                <f:attribute  name="adjetivo" value="Fodastico"/>
+                <f:attribute  name="estudante" value="#{comunicacaoTeste4Bean.estudante}"/>
+            </h:commandButton>
+
+        </h:panelGrid>
+    </o:form>
+</h:body>
+</html>

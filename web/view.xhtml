@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <h:body>
+        <h:form>
+            <h:outputText value="#{testeApplicationBean.categoriaList}"/><br/>
+            <h:outputText value="#{testeApplicationBean.dependentBean.categoriasList}"/><br/>
+            <!--<h:outputText value="Estudante Logado: #{testeApplicationBean.sessionBean.estudante.nome}"/><br/>-->
+            <h:outputText value="Estudante Logado: #{testeSessionBean.estudante.nome}"/><br/>
+
+            <h:outputText value="#{testeViewBean.personagemSelecionado}"/><br/>
+            <h:outputText value="Dependent: #{testeViewBean.dependentBean.personagemSelecionado}"/><br/>
+
+            <h:commandButton actionListener="#{testeViewBean.selecionarPersonagem()}"
+                             value="Selecionar Personagem"/>
+            <h:commandButton actionListener="#{testeViewBean.selecionarPersonagem()}"
+                             value="Selecionar Personagem Forward" action="view2"/>
+            <h:commandButton actionListener="#{testeViewBean.selecionarPersonagem()}"
+                             value="Selecionar Personagem Redirect" action="view2?faces-redirect=true"/>
+
+        </h:form>
+    </h:body>
+</h:head>
+</html>

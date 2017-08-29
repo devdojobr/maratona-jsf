@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head></h:head>
+<h:body>
+    <p:messages autoUpdate="true" id="messages"/>
+    <h:outputText value="é uma requisição ajax? #{facesContext.postback}" id="postback"/>
+    <!--<f:event type="preRenderView" listener="#{ajaxTesteBean.init}"/>-->
+    <f:metadata>
+        <f:viewAction action="#{ajaxTesteBean.init}"/>
+    </f:metadata>
+    <h:form id="form">
+        <h:panelGrid columns="1">
+            <f:ajax event="blur" render="postback">
+                <h:inputText value="#{ajaxTesteBean.email}" id="email"
+                             validator="#{validators.validateDuplicatedEmail}" required="true"/>
+                <h:inputText value="#{ajaxTesteBean.nome}" id="nome" required="true"/>
+            </f:ajax>
+
+            <h:commandButton value="Enviar"/>
+        </h:panelGrid>
+    </h:form>
+
+</h:body>
+</html>

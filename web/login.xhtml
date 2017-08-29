@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+
+</h:head>
+<h:body>
+    <h:form>
+        <h:panelGrid columns="1">
+            <p:messages autoUpdate="true"/>
+            <h:outputLabel value="Nome"/>
+            <h:inputText value="#{loginBean.nome}" required="true" requiredMessage="O nome plz"/>
+            <h:outputLabel value="Senha"/>
+            <h:inputSecret value="#{loginBean.senha}" required="true" requiredMessage="A senha animal"/>
+            <h:selectOneMenu value="#{loginBean.language}">
+                <f:selectItems value="#{loginBean.localeList}" var="locale"
+                              itemValue="#{locale.language}" itemLabel="#{locale.displayLanguage}"/>
+            </h:selectOneMenu>
+            <h:commandButton value="Logar" action="#{loginBean.logar}"/>
+        </h:panelGrid>
+
+    </h:form>
+</h:body>
+</html>
